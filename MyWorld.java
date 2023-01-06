@@ -13,11 +13,11 @@ public class MyWorld extends World
     public int patharray[][]= {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {1,1,1,2,0,0,0,0,0,0,0,0,0,2,1,4},
             {0,0,0,1,0,0,0,0,0,0,0,0,2,3,0,0},
-            {0,0,0,3,1,1,1,2,0,0,0,0,1,0,0,0},
-            {0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0},
-            {0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0},
-            {0,0,0,0,0,0,0,3,1,1,1,1,3,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}}; 
+            {0,0,0,1,0,2,1,2,0,0,0,0,1,0,0,0},
+            {0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0},
+            {0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0},
+            {0,0,0,1,0,1,0,3,1,1,1,1,3,0,0,0},
+            {0,0,0,3,1,3,0,0,0,0,0,0,0,0,0,0}}; 
 
     /**
      * Constructor for objects of class MyWorld.
@@ -29,6 +29,8 @@ public class MyWorld extends World
         super(16, 8, 64); 
         prepare();
         addObject(new Plane(),0,1);
+        addObject(new Heart(),1,0);
+        addObject(new Cannon(),2,2);
     }
 
     private void prepare(){
@@ -41,6 +43,7 @@ public class MyWorld extends World
 
             }
         }
+        addObject(new LivesCounter(),0,0);
     }
 
     public void sliep(int ticks){

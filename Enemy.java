@@ -23,13 +23,13 @@ public class Enemy extends Actor
         if(deg>0){
             for(int i=0;i<(deg/30);i++){
                 turn(30);
-                Greenfoot.delay(1);
+                
             }
         }
         else if(deg<0){
             for(int i=0;i>(deg/30);i--){
                 turn(-30);
-                Greenfoot.delay(1);
+                
             }
         }
     }
@@ -41,23 +41,23 @@ public class Enemy extends Actor
         if(theWorld.patharray[getY()][getX()]==1)
         {
             move(1);
-            Greenfoot.delay(1);
         }
         else if(theWorld.patharray[getY()][getX()]==2)
         {
             smoothTurn(90);
             move(1);
-            Greenfoot.delay(1);
         }
         else  if(theWorld.patharray[getY()][getX()]==3)
         {
             smoothTurn(-90);
             move(1);
-            Greenfoot.delay(1);
         }
         else if(theWorld.patharray[getY()][getX()]==4)
         {
             getWorld().removeObject(this);
+            LivesCounter livesCounter = new LivesCounter();
+            livesCounter.livesLost(5);
         }
+        
     }
 }
