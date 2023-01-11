@@ -10,14 +10,16 @@ public class MyWorld extends World
 {
     //i y-Achse
     //j x-Achse
-    public int patharray[][]= {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    public int patharray[][]= {
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {1,1,1,2,0,0,0,0,0,0,0,0,0,2,1,4},
             {0,0,0,1,0,0,0,0,0,0,0,0,2,3,0,0},
             {0,0,0,1,0,2,1,2,0,0,0,0,1,0,0,0},
             {0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0},
             {0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0},
             {0,0,0,1,0,1,0,3,1,1,1,1,3,0,0,0},
-            {0,0,0,3,1,3,0,0,0,0,0,0,0,0,0,0}}; 
+            {0,0,0,3,1,3,0,0,0,0,0,0,0,0,0,0}
+        }; 
 
     /**
      * Constructor for objects of class MyWorld.
@@ -26,11 +28,12 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(16, 8, 64); 
+        super(32, 24, 21); 
         prepare();
         addObject(new Plane(),0,1);
-        addObject(new Heart(),1,0);
-        addObject(new Cannon(),2,2);
+        //addObject(new Heart(),1,0);
+        //addObject(new Cannon(),2,2);
+        //addObject(new SmoothMover(),0,0);
     }
 
     private void prepare(){

@@ -16,6 +16,8 @@ public class Ground extends Actor
     public Ground(int type){
         this.type=type;
         if(type==0){
+            GreenfootImage image = new GreenfootImage("nfloor.png");
+            image.scale(21, 21);
             this.setImage("nfloor.png");
         }
         

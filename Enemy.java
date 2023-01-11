@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Enemy extends Actor
+public class Enemy extends SmoothMover
 {
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
@@ -40,7 +40,7 @@ public class Enemy extends Actor
         MyWorld theWorld=((MyWorld)getWorld());
         if(theWorld.patharray[getY()][getX()]==1)
         {
-            move(1);
+        this.move(0.2);
         }
         else if(theWorld.patharray[getY()][getX()]==2)
         {
