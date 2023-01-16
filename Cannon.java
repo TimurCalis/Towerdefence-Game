@@ -17,20 +17,31 @@ public class Cannon extends Tower
     public void act()
     {
         findClosestInRange();
+        shootAtEnemy();
     }
     //aus https://www.greenfoot.org/topics/60867/0
     public void findClosestInRange()
     {
-        List<Enemy> enemys = getObjectsInRange(3, Enemy.class);
+        List<Enemy> enemys = getObjectsInRange(9, Enemy.class);
         if(enemys.size() != 0)
         {
-            int enemysX = enemys.get(0).getX();
-            int enemysY = enemys.get(0).getY();
+            double enemysX = enemys.get(0).getExactX();
+            double enemysY = enemys.get(0).getExactY();
             
-            turnTowards(enemysX, enemysY);
+            turnTowards((int)enemysX,(int)enemysY);
             
+        }       
+    }
+    public void shootAtEnemy()
+    {
+        int reloadTime;
+        int tSinceReload;
+        //if (tSinceReload<
+        List<Enemy> enemys = getObjectsInRange(9, Enemy.class);
+        if(enemys.size() != 0)
+        {
+            Bullet bullet = new Bullet(this.getRotation(),1);
+            getWorld().addObject(bullet,this.getX(),this.getY());
         }
-        
-        
     }
 }

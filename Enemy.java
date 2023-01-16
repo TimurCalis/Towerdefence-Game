@@ -14,7 +14,7 @@ public class Enemy extends SmoothMover
      */
     public void act()
     {
-        getTileType();
+        walkTileType();
     }
 
     public void smoothTurn(int deg)
@@ -34,25 +34,25 @@ public class Enemy extends SmoothMover
         }
     }
 
-    private void getTileType(){
+    private void walkTileType(){
         this.getX();
         this.getY();
         MyWorld theWorld=((MyWorld)getWorld());
-        if(theWorld.patharray[getY()][getX()]==1)
+        if(theWorld.pathArray[getY()][getX()]==1)
         {
-        this.move(0.2);
+            this.move(0.2);
         }
-        else if(theWorld.patharray[getY()][getX()]==2)
+        else if(theWorld.pathArray[getY()][getX()]==2)
         {
             smoothTurn(90);
             move(1);
         }
-        else  if(theWorld.patharray[getY()][getX()]==3)
+        else  if(theWorld.pathArray[getY()][getX()]==3)
         {
             smoothTurn(-90);
             move(1);
         }
-        else if(theWorld.patharray[getY()][getX()]==4)
+        else if(theWorld.pathArray[getY()][getX()]==5)
         {
             getWorld().removeObject(this);
             LivesCounter livesCounter = new LivesCounter();

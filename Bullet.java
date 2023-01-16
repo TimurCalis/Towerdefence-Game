@@ -6,14 +6,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bullet extends Tower
+public class Bullet extends SmoothMover
 {
-    /**
-     * Act - do whatever the Bullet wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public int rot;
+    public int speed;
+    public int c=0;
     public void act()
     {
-        // Add your action code here.
+        bulletMove();
+        removeBullet();
+    }
+    public Bullet(int rot,int speed)
+    {
+        setRotation(rot);  
+        this.speed=speed;
+    }
+    public void bulletMove()
+    {
+        move(speed);
+        c++;
+    }
+    public void removeBullet()
+    {
+        if(isAtEdge()||c>7){
+            this.getWorld().removeObject(this);
+        }       
     }
 }

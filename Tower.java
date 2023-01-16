@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Tower extends Actor
+public class Tower extends SmoothMover
 {
     /**
      * Act - do whatever the Tower wants to do. This method is called whenever

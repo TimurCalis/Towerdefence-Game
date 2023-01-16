@@ -31,6 +31,7 @@ public class LivesCounter extends UI
     {
         if(lives<=0){
             Greenfoot.stop();
+            lives=100;
         }
     }
 }

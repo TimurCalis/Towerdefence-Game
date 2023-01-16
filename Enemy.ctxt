@@ -7,5 +7,5 @@ comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Enemy\ wants\ to\ do.\ This\ meth
 comment2.params=deg
 comment2.target=void\ smoothTurn(int)
 comment3.params=
-comment3.target=void\ getTileType()
+comment3.target=void\ walkTileType()
 numComments=4
