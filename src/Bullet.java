@@ -10,25 +10,30 @@ public class Bullet extends SmoothMover
 {
     public int rot;
     public int speed;
-    public int c=0;
+    public int counter = 0;
+    public int dmg;
     public void act()
     {
         bulletMove();
         removeBullet();
+        getDmg();
     }
-    public Bullet(int rot,int speed)
+    public Bullet(int rot,int speed,int dmg)
     {
         setRotation(rot);  
         this.speed=speed;
     }
+    public int getDmg(){
+        return dmg;
+    }
     public void bulletMove()
     {
-        move(speed);
-        c++;
+        move((double)speed);
+        counter++;
     }
     public void removeBullet()
     {
-        if(isAtEdge()||c>7){
+        if(isAtEdge()||counter>20){
             this.getWorld().removeObject(this);
         }       
     }

@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class Cannon extends Tower
 {
+    int reloadTime = 20;
+    int tSinceReload = 0;
     /**
      * Act - do whatever the Cannon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,7 +24,7 @@ public class Cannon extends Tower
     //aus https://www.greenfoot.org/topics/60867/0
     public void findClosestInRange()
     {
-        List<Enemy> enemys = getObjectsInRange(9, Enemy.class);
+        List<Enemy> enemys = getObjectsInRange(15, Enemy.class);
         if(enemys.size() != 0)
         {
             double enemysX = enemys.get(0).getExactX();
@@ -32,16 +34,23 @@ public class Cannon extends Tower
             
         }       
     }
+    
     public void shootAtEnemy()
     {
-        int reloadTime;
-        int tSinceReload;
-        //if (tSinceReload<
-        List<Enemy> enemys = getObjectsInRange(9, Enemy.class);
-        if(enemys.size() != 0)
+    
+        if (tSinceReload<reloadTime)
         {
-            Bullet bullet = new Bullet(this.getRotation(),1);
-            getWorld().addObject(bullet,this.getX(),this.getY());
+            tSinceReload ++;
         }
+        else
+        {
+            List<Enemy> enemys = getObjectsInRange(13, Enemy.class);
+            if(enemys.size() != 0)
+            {
+                Bullet bullet = new Bullet(this.getRotation(),1,20);
+                getWorld().addObject(bullet,this.getX(),this.getY());
+            }
+            tSinceReload = 0;
+    }
     }
 }

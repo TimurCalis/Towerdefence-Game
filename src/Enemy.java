@@ -8,27 +8,54 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends SmoothMover
 {
+    int eHealth;
+    public Enemy(int healthValue){
+        eHealth = healthValue;
+    }
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        walkTileType();
-    }
+        if(this.getWorld()!=null)
+        {
+            
+            eHealth();            
+            walkTileType();
+            removeEnemy();
 
+        }
+    }
+      public void eHealth()
+    { 
+       Bullet bullet = (Bullet)getOneIntersectingObject(Bullet.class);
+       if(bullet != null){
+           eHealth = eHealth - 2;
+           this.getWorld().removeObject(bullet);
+        }
+    }
+    public void removeEnemy(){
+        if(eHealth<=0){
+           Money money = new Money();
+           money.moneyEarned(5);
+           this.getWorld().removeObject(this);
+           
+       }
+    }
+    
     public void smoothTurn(int deg)
     {
         MyWorld theWorld=((MyWorld)getWorld());
         if(deg>0){
-            for(int i=0;i<(deg/30);i++){
-                turn(30);
+            for(int i=0;i<(deg/15);i++){
+                turn(15);
                 
             }
         }
         else if(deg<0){
-            for(int i=0;i>(deg/30);i--){
-                turn(-30);
+            for(int i=0;i>(deg/15);i--){
+                turn(-15);
                 
             }
         }
@@ -54,9 +81,10 @@ public class Enemy extends SmoothMover
         }
         else if(theWorld.pathArray[getY()][getX()]==5)
         {
-            getWorld().removeObject(this);
+            System.out.println("am ziel");
             LivesCounter livesCounter = new LivesCounter();
-            livesCounter.livesLost(5);
+            livesCounter.livesLost(1);
+            getWorld().removeObject(this);
         }
         
     }

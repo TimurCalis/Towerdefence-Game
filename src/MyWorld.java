@@ -24,7 +24,7 @@ public class MyWorld extends World
             {0,0,0, 0,0,0, 4,1,4, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0},
             
             {0,0,0, 0,0,0, 4,1,4, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 4,4,4, 4,4,4, 4,4,4, 4,4,4},
-            {0,0,0, 0,0,0, 4,1,4, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 4,2,1, 1,1,1, 1,1,1, 1,5,1},
+            {0,0,0, 0,0,0, 4,1,4, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 4,2,1, 1,1,1, 1,1,1, 1,5,5},
             {0,0,0, 0,0,0, 4,1,4, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 4,1,4, 4,4,4, 4,4,4, 4,4,4},
             
             {0,0,0, 0,0,0, 4,1,4, 4,4,4, 4,4,4, 0,0,0, 0,0,0, 4,1,4, 0,0,0, 0,0,0, 0,0,0},
@@ -53,7 +53,6 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(32, 24, 21); 
         prepare();
-        addObject(new Plane(),0,1);
         //addObject(new Heart(),1,0);
         //addObject(new Cannon(),2,2);
         //addObject(new SmoothMover(),0,0);
@@ -75,18 +74,23 @@ public class MyWorld extends World
             }
         }
         addObject(new LivesCounter(),10,1);
+        
+        addObject(new Money(),19,1);
+        
         Cannon cannon = new Cannon();
         addObject(cannon,4,4);
         Cannon cannon2 = new Cannon();
         addObject(cannon2,16,13);
+        
+        LivesCounter livesCounter = new LivesCounter();
+        livesCounter.lives=5;
+        
+        
+        addObject(new Button(),30,22);
+    }
+    public void spawnPlane(int planeHealth){ 
+        addObject(new Enemy(planeHealth),0,1);
+        System.out.println("new Plane generated");
+    }
     }
 
-    public void sliep(int ticks){
-        int counter=0;
-        while(counter<ticks)
-        {
-            counter+=1;
-            System.out.println(counter);
-        }
-    }
-}

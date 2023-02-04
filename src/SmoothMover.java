@@ -36,7 +36,7 @@ public class SmoothMover extends Actor
         double dx = Math.cos(radians) * distance;
         double dy = Math.sin(radians) * distance;
         setLocation(exactX + dx, exactY + dy);
-        System.out.println(exactX + dx);
+        
     }
     
     /**
