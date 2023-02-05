@@ -18,21 +18,26 @@ public class Delayer extends UI
     int callsCounter = 0;
     int callsMax = 6;           //amount of enemys spawned
     int wavesCounter = 0;
-    int planeHealthE = 10;  //different waves with increasing difficulty
+    int planeHealthE;  //different waves with increasing difficulty
     public void act()
     {
         abc();   
 
     }
-    public int wavesArray[][]= {
-        {150,3,},
-        {0,0,0},
+    public int wavesArray[][]= { //{delayTime, callsMax,planeHealthE}
+        {150,3,1},
+        {100,4,1},
+        {100,7,1},
+        {80,3,3}
         };
-    
-    
-    
+    public void wavesVariables() {
+        delayTime    = this.wavesArray[0][wavesCounter];
+        callsMax     = this.wavesArray[1][wavesCounter];
+        planeHealthE = this.wavesArray[2][wavesCounter];
+    }
     public void abc()
         {
+        wavesVariables();
         if(this.isSpawning==true){
             if(this.delayCounter%delayTime==0){
                 MyWorld myWorld=((MyWorld)getWorld());
@@ -46,6 +51,7 @@ public class Delayer extends UI
                 delayCounter = 0;
                 callsCounter = 0;
                 wavesCounter ++;
+                //wavesVariables();
             }
         }
     }
