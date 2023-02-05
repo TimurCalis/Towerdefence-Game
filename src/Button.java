@@ -25,6 +25,8 @@ public class Button extends UI
            
            Delayer delayer = new Delayer();
            this.getWorld().addObject(delayer,25,1);
+           WaveCounter waveCounter = new WaveCounter();
+           this.getWorld().addObject(waveCounter,29,1);
            delayer.isSpawning = true;
            System.out.println("butto");
        }

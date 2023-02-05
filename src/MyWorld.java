@@ -90,7 +90,7 @@ public class MyWorld extends World
     }
     public void spawnPlane(int planeHealth){ 
         addObject(new Enemy(planeHealth),0,1);
-        System.out.println("new Plane generated");
+        System.out.println(planeHealth);
     }
     }
 

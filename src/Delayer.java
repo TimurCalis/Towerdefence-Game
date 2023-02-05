@@ -8,32 +8,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Delayer extends UI
 {
-    /**
-     * Act - do whatever the delayer wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     boolean isSpawning = false;
     int delayCounter = 0;   //delay between each spawned enemy
-    int delayTime = 50;
+    int delayTime;
     int callsCounter = 0;
-    int callsMax = 6;           //amount of enemys spawned
-    int wavesCounter = 0;
+    int callsMax;           //amount of enemys spawned
+    static int wavesCounter = 0;
     int planeHealthE;  //different waves with increasing difficulty
     public void act()
     {
         abc();   
-
+        wavesVariables();
+        waveImg();
     }
     public int wavesArray[][]= { //{delayTime, callsMax,planeHealthE}
-        {150,3,1},
-        {100,4,1},
-        {100,7,1},
-        {80,3,3}
+        {200,5,20},
+        {50,3,10},
+        {30,7,6},
+        {300,2,85},
         };
     public void wavesVariables() {
-        delayTime    = this.wavesArray[0][wavesCounter];
-        callsMax     = this.wavesArray[1][wavesCounter];
-        planeHealthE = this.wavesArray[2][wavesCounter];
+        delayTime    = this.wavesArray[wavesCounter][0];
+        callsMax     = this.wavesArray[wavesCounter][1];
+        planeHealthE = this.wavesArray[wavesCounter][2];
     }
     public void abc()
         {
@@ -42,7 +39,7 @@ public class Delayer extends UI
             if(this.delayCounter%delayTime==0){
                 MyWorld myWorld=((MyWorld)getWorld());
                 myWorld.spawnPlane(planeHealthE);   //spawn a plane with the amount of health given
-                callsCounter++;
+                callsCounter ++;
                 
             }
             this.delayCounter ++;
@@ -50,10 +47,13 @@ public class Delayer extends UI
                 this.isSpawning = false;
                 delayCounter = 0;
                 callsCounter = 0;
-                wavesCounter ++;
-                //wavesVariables();
+                if(wavesCounter+1<wavesArray.length)//limits waves to length of Arr
+                this.wavesCounter ++;
             }
         }
+    }
+    public void waveImg(){
+        
     }
 }
 
