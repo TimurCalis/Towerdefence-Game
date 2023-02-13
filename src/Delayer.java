@@ -22,7 +22,7 @@ public class Delayer extends UI
         waveImg();
     }
     public int wavesArray[][]= { //{delayTime, callsMax,planeHealthE}
-        {200,5,20},
+        {200,5,10},
         {50,3,10},
         {30,7,6},
         {300,2,85},
