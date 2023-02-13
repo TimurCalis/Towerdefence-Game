@@ -79,7 +79,7 @@ public class Enemy extends SmoothMover
             smoothTurn(-90);
             move(1);
         }
-        else if(theWorld.pathArray[getY()][getX()]==5)
+        else if(theWorld.pathArray[getY()][getX()]==4)
         {
             System.out.println("am ziel");
             LivesCounter livesCounter = new LivesCounter();
