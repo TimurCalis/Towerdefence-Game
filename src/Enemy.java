@@ -38,7 +38,7 @@ public class Enemy extends SmoothMover
     public void removeEnemy(){
         if(eHealth<=0){
            Money money = new Money();
-           money.moneyEarned(5);
+           money.moneyEarned(15);
            this.getWorld().removeObject(this);
            
        }

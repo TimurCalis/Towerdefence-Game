@@ -15,12 +15,6 @@ public class Ground extends Actor
     //consturctor ist neue methode
     public Ground(int type){
         this.type=type;
-        //if(type==5){
-        //    GreenfootImage image = new GreenfootImage("nfloor.png");
-        //    image.scale(1,1);
-        //    this.setImage("flooryy.png");
-        //}
-        
     }
     public int getType(){
         return this.type;

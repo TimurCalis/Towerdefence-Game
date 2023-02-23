@@ -17,7 +17,7 @@ public class MyWorld extends World
             
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,2, 3,0,0, 0,0,0, 0,0,0, 0,0},
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,1, 0,0,0, 0,0,0, 0,0,0, 0,0},
-            {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,1, 0,0,0, 0,0,0, 0,0,0, 0,0},
+            {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,1, 0,6,0, 0,0,0, 0,0,0, 0,0},
             
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 2,1,3, 0,0,0, 0,0,0, 0,0,0, 0,0},
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 1,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
@@ -28,7 +28,7 @@ public class MyWorld extends World
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,1,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
             
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 2,1,1, 1,3,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
-            {0,0,0, 0,0,0, 0,0,0, 0,0,0, 1,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
+            {0,0,0, 0,6,0, 0,0,0, 0,0,0, 1,0,0, 0,0,0, 6,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
             {0,0,0, 0,0,0, 2,1,1, 1,1,1, 3,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
             
             {0,0,0, 0,0,0, 1,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
@@ -36,7 +36,7 @@ public class MyWorld extends World
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
             
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
-            {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
+            {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,6, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
             
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
@@ -70,29 +70,29 @@ public class MyWorld extends World
                 if(this.pathArray[i][j]!=0){
                     addObject(new Ground(pathArray[i][j]),j,i);
                 }
-
+                if(this.pathArray[i][j]==6){
+                    addObject(new Base(),j,i);
+                }
+                //if(this.pathArray[i][j]==7){
+                //    addObject(new Base(),j,i);
+                //    addObject(new Cannon(),j,i);
+                //}
             }
         }
         addObject(new LivesCounter(),10,1);
-
         addObject(new Money(),19,1);
-
-        Cannon cannon = new Cannon();
-        addObject(cannon,4,4);
-
         LivesCounter livesCounter = new LivesCounter();
         livesCounter.lives=5;
-
-        addObject(new Button(),29,22);
-        Cannon cannon2 = new Cannon();
-        addObject(cannon2,13,15);
-        Cannon cannon3 = new Cannon();
-        addObject(cannon3,18,11);
+        WaveStartButton button = new WaveStartButton();
+        addObject(button,29,22);
+        ShopButton shopButton = new ShopButton();
+        addObject(shopButton,27,22);
+        Money.money = 250;
+        LivesCounter.lives = 5;
     }
 
     public void spawnPlane(int planeHealth){ 
         addObject(new Enemy(planeHealth),0,16);
-        System.out.println(planeHealth);
     }
     }
 

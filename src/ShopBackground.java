@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ShopBackground extends shopelements
+public class ShopBackground extends ShopElements
 {
     /**
      * Act - do whatever the ShopBackground wants to do. This method is called whenever

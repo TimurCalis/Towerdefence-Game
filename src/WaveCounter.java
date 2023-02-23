@@ -12,11 +12,12 @@ public class WaveCounter extends Delayer
      * Act - do whatever the WaveCounter wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    static int currentWave;
     public void act()
     {
         wavesImg();
     }
     public void wavesImg(){
-        setImage(wavesCounter+".png");
+        setImage(currentWave+".png");
     }
 }
