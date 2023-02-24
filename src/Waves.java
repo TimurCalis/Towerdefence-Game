@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Delayer extends UI
+public class Waves extends UI
 {
     boolean isSpawning = false;
     int delayCounter = 0;   //delay between each spawned enemy
@@ -19,17 +19,17 @@ public class Delayer extends UI
     {
         abc();   
         wavesVariables();
+        // wavesDisplayInt();
     }
     public int wavesArray[][]= { //{delayTime, callsMax,planeHealthE}
         {200,5,6},
         {50,5,4},
-        {30,7,7},
-        {25,9,8},
-        {100,4,20},
-        {90,4,20},
-        {80,4,20},
-        {70,4,20},
-        
+        {1,40,2},
+        {1,40,4},
+        {1,100,6},
+        {90,4,30},
+        {80,4,40},
+        {70,4,60},
         };
     public void wavesVariables() {
         delayTime    = this.wavesArray[wavesCounter][0];
@@ -53,10 +53,12 @@ public class Delayer extends UI
                 callsCounter = 0;
                 if(wavesCounter+1<wavesArray.length)//limits waves to length of Arr
                 this.wavesCounter ++;
-                WaveCounter waveCounter = new WaveCounter();
-                waveCounter.wavesImg();
+                wavesDisplayInt();
             }
         }
+    }
+    public void wavesDisplayInt(){
+        WaveDisplayer.currentWave = wavesCounter + 1;
     }
 }
 

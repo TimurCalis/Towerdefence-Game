@@ -21,16 +21,16 @@ public class ShopButton extends UI
         if(Greenfoot.mouseClicked(this)){
             ShopBackground shopBackground = new ShopBackground();
             WeaponBuyButton weaponButtonCannon = new WeaponBuyButton(0);
-            //WeaponBuyButton weaponButtonMg = new WeaponBuyButton(0);
-            //WeaponBuyButton weaponButtonRl = new WeaponBuyButton(0);
+            WeaponBuyButton weaponButtonMg = new WeaponBuyButton(1);
+            WeaponBuyButton weaponButtonRl = new WeaponBuyButton(2);
             if(shopOpen == false){
                 this.getWorld().addObject(shopBackground,28,5);
                 this.getWorld().addObject(weaponButtonCannon,27,1);
-                //this.getWorld().addObject(weaponButtonMg,29,1);
-                //this.getWorld().addObject(weaponButtonRl,31,1);
+                this.getWorld().addObject(weaponButtonMg,27,5);
+                this.getWorld().addObject(weaponButtonRl,27,9);
                 shopOpen = true;
             }
-            else if(shopOpen == true && ((WeaponBuyButton)this.getWorld().getObjects(WeaponBuyButton.class).get(0)).weaponPlaceable == false){
+            else if(shopOpen == true && ((WeaponBuyButton)this.getWorld().getObjects(WeaponBuyButton.class).get(0)).weaponPlaceable == 0){
                 getWorld().removeObjects(getWorld().getObjects(ShopElements.class));
                 shopOpen = false;
             }

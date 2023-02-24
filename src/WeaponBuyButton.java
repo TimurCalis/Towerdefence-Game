@@ -14,9 +14,12 @@ public class WeaponBuyButton extends ShopElements
      */
     int[] priceArray = {100,200,350};
     int price;
-    boolean weaponPlaceable;
+    static int weaponPlaceableID;
+    static int weaponPlaceable;
+    int weaponID;
     public WeaponBuyButton(int id){
         price = priceArray[id];
+        weaponID = id;
     }
     public void act()
     {
@@ -25,10 +28,12 @@ public class WeaponBuyButton extends ShopElements
     public void pressed(){
         if(Greenfoot.mouseClicked(this))
         {
-            if(Money.money >= 100 && weaponPlaceable == false)
+            if(Money.money >= price && weaponPlaceable == 0)
             {
-                Money.money = Money.money-100;
-                weaponPlaceable = true;
+                Money.money = Money.money-price;
+                weaponPlaceable = 1;
+                weaponPlaceableID = weaponID;
+                System.out.println(weaponID);
             }
         }
     }

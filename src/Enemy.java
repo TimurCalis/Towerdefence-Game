@@ -31,14 +31,15 @@ public class Enemy extends SmoothMover
     { 
        Bullet bullet = (Bullet)getOneIntersectingObject(Bullet.class);
        if(bullet != null){
-           eHealth = eHealth - 2;
+           
+           eHealth = eHealth - bullet.damage;
            this.getWorld().removeObject(bullet);
         }
     }
     public void removeEnemy(){
         if(eHealth<=0){
            Money money = new Money();
-           money.moneyEarned(15);
+           money.moneyEarned(20);
            this.getWorld().removeObject(this);
            
        }
@@ -81,7 +82,6 @@ public class Enemy extends SmoothMover
         }
         else if(theWorld.pathArray[getY()][getX()]==4)
         {
-            System.out.println("am ziel");
             LivesCounter livesCounter = new LivesCounter();
             livesCounter.livesLost(1);
             getWorld().removeObject(this);

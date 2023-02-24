@@ -11,20 +11,18 @@ public class Bullet extends SmoothMover
     public int rot;
     public int speed;
     public int counter = 0;
-    public int dmg;
+    public int damage;
     public void act()
     {
         bulletMove();
         removeBullet();
-        getDmg();
     }
-    public Bullet(int rot,int speed,int dmg)
+    public Bullet(int rot,int spd,int dmg)
     {
         setRotation(rot);  
-        this.speed=speed;
-    }
-    public int getDmg(){
-        return dmg;
+        speed=spd;
+        damage=dmg;
+        
     }
     public void bulletMove()
     {

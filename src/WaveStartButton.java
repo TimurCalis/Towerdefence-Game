@@ -19,13 +19,13 @@ public class WaveStartButton extends UI
     public void checkForButtonPress()
     {
        if(Greenfoot.mouseClicked(this)){
-           Delayer delayer = new Delayer();
-           this.getWorld().addObject(delayer,25,1);
-           WaveCounter waveCounter = new WaveCounter();
-           waveCounter.currentWave ++;
-           this.getWorld().addObject(waveCounter,2,1);
+           Waves delayer = new Waves();
+           this.getWorld().addObject(delayer ,2,1);
+           WaveDisplayer waveDisplayer1 = new WaveDisplayer(0);
+           this.getWorld().addObject(waveDisplayer1,2,1);
+           WaveDisplayer waveDisplayer2 = new WaveDisplayer(1);
+           this.getWorld().addObject(waveDisplayer2,1,1);
            delayer.isSpawning = true;
        }
     }
-    
 }

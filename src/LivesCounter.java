@@ -30,7 +30,6 @@ public class LivesCounter extends UI
     public void checkGameend()
     {
         if(lives<=0){
-            System.out.println("ende");
             Greenfoot.stop();
         }
     }
