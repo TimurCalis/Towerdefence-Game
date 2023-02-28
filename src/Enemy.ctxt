@@ -1,17 +1,14 @@
 #BlueJ class context
 comment0.target=Enemy
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Enemy\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Enemy\ class.\ Enemys\ recive\ a\ healthValue\ (enemyHealth)\ trough\ Waves.wavesArray[x][3]\r\n\ \r\n
 comment1.params=healthValue
 comment1.target=Enemy(int)
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Enemy\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
 comment3.target=void\ eHealth()
 comment4.params=
 comment4.target=void\ removeEnemy()
-comment5.params=deg
-comment5.target=void\ smoothTurn(int)
-comment6.params=
-comment6.target=void\ walkTileType()
-numComments=7
+comment5.params=
+comment5.target=void\ walkTileType()
+numComments=6

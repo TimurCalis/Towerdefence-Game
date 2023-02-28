@@ -1,18 +1,11 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Money here.
+import greenfoot.*; 
+/** Counts and returns money
  * 
- * @author (your name) 
- * @version (a version number or a date)
  */
 public class Money extends UI
 {
     static int money;
-    /**
-     * Act - do whatever the Money wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    static boolean notEnoughMoney;
     public void act()
     {
         moneyDisplay();
@@ -27,6 +20,13 @@ public class Money extends UI
     }
     public void moneyDisplay()
     {
-        this.setImage(new GreenfootImage(Integer.toString(money), 45, Color.YELLOW, new Color(0,0,0,0)));
+        if(notEnoughMoney == false){
+            this.setImage(new GreenfootImage(Integer.toString(money), 45, Color.YELLOW, new Color(0,0,0,0)));
+        }
+        if(notEnoughMoney == true){ //flash in red if not enough money is available to buy a certain gun/upgrade
+            this.setImage(new GreenfootImage(Integer.toString(money), 45, Color.RED, new Color(110,110,110,110)));
+            Greenfoot.delay(10); //delay unoptimized solution here -> entire game freezes shortly but for loop didn't work
+            notEnoughMoney = false;
+        }        
     }
 }

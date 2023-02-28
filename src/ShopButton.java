@@ -30,7 +30,7 @@ public class ShopButton extends UI
                 this.getWorld().addObject(weaponButtonRl,27,9);
                 shopOpen = true;
             }
-            else if(shopOpen == true && ((WeaponBuyButton)this.getWorld().getObjects(WeaponBuyButton.class).get(0)).weaponPlaceable == 0){
+            else if(shopOpen == true && ((WeaponBuyButton)this.getWorld().getObjects(WeaponBuyButton.class).get(0)).weaponPlaceable == false){
                 getWorld().removeObjects(getWorld().getObjects(ShopElements.class));
                 shopOpen = false;
             }

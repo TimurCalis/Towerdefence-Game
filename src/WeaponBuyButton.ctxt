@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=WeaponBuyButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ CannonButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ \ Individual\ button\ for\ each\ type\ of\ weapon\r\n
 comment1.params=id
 comment1.target=WeaponBuyButton(int)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ pressed()
+comment3.target=void\ checkPressed()
 numComments=4

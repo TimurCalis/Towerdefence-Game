@@ -1,13 +1,14 @@
 #BlueJ class context
 comment0.target=LivesCounter
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Counter\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Counter\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment2.params=livesLost
-comment2.target=void\ livesLost(int)
-comment3.params=
-comment3.target=void\ livesDisplay()
+comment0.text=\ Regular\ lives\ Display\ +\ Gameover\ screen\ in\ one\ class\ for\ efficeny\ (no\ new\ world\ is\ required)\r\n\ \ LivesCounter(false)\ \=\ LivesCounter\ \r\n\ \ LivesCounter(true)\ \=\ created\ after\ all\ lives\ are\ lost,\ clickable\ for\ restart\r\n
+comment1.params=gameOverLogo
+comment1.target=LivesCounter(boolean)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=livesLost
+comment3.target=void\ livesLost(int)
 comment4.params=
-comment4.target=void\ checkGameend()
-numComments=5
+comment4.target=void\ livesDisplay()
+comment5.params=
+comment5.target=void\ checkGameend()
+numComments=6

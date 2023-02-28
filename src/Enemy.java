@@ -1,89 +1,58 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; 
 
 /**
- * Write a description of class Enemy here.
+ * Enemy class. Enemys recive a healthValue (enemyHealth) trough Waves.wavesArray[x][3]
  * 
- * @author (your name) 
- * @version (a version number or a date)
  */
 public class Enemy extends SmoothMover
 {
-    int eHealth;
+    int enemyHealth;
     public Enemy(int healthValue){
-        eHealth = healthValue;
+        enemyHealth = healthValue;
     }
-    /**
-     * Act - do whatever the Enemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
-    {
-        if(this.getWorld()!=null)
-        {
-            
-            eHealth();            
-            walkTileType();
-            removeEnemy();
-
-        }
+    {     
+        eHealth();            
+        walkTileType();
+        removeEnemy();
     }
-      public void eHealth()
+    public void eHealth() //touching a bullet results in health loss by the amount given at Turret.BulletDmgArray[][]
     { 
        Bullet bullet = (Bullet)getOneIntersectingObject(Bullet.class);
-       if(bullet != null){
-           
-           eHealth = eHealth - bullet.damage;
+       if(bullet != null){ //if there is a bullet listed           
+           enemyHealth = enemyHealth - bullet.damage;
            this.getWorld().removeObject(bullet);
         }
     }
     public void removeEnemy(){
-        if(eHealth<=0){
+        if(enemyHealth<=0){
            Money money = new Money();
-           money.moneyEarned(20);
+           Money.money += 25;
            this.getWorld().removeObject(this);
            
        }
     }
-    
-    public void smoothTurn(int deg)
-    {
-        MyWorld theWorld=((MyWorld)getWorld());
-        if(deg>0){
-            for(int i=0;i<(deg/15);i++){
-                turn(15);
-                
-            }
-        }
-        else if(deg<0){
-            for(int i=0;i>(deg/15);i--){
-                turn(-15);
-                
-            }
-        }
-    }
-
     private void walkTileType(){
         this.getX();
         this.getY();
-        MyWorld theWorld=((MyWorld)getWorld());
-        if(theWorld.pathArray[getY()][getX()]==1)
+        MainWorld mainWorld=((MainWorld)getWorld());
+        if(mainWorld.pathArray[getY()][getX()]==1)//checks the secific tile Enemy is on. Monves according to mainWorld.pathArray[][] value.
         {
-            this.move(0.2);
+            this.move(0.2); //speed as double pissible due to SmoothMover
         }
-        else if(theWorld.pathArray[getY()][getX()]==2)
+        else if(mainWorld.pathArray[getY()][getX()]==2)
         {
-            smoothTurn(90);
+            turn(90);
             move(1);
         }
-        else  if(theWorld.pathArray[getY()][getX()]==3)
+        else  if(mainWorld.pathArray[getY()][getX()]==3)
         {
-            smoothTurn(-90);
+            turn(-90);
             move(1);
         }
-        else if(theWorld.pathArray[getY()][getX()]==4)
+        else if(mainWorld.pathArray[getY()][getX()]==4)//subtract a life if enemy at end of track
         {
-            LivesCounter livesCounter = new LivesCounter();
-            livesCounter.livesLost(1);
+            LivesCounter.lives-=1;
             getWorld().removeObject(this);
         }
         

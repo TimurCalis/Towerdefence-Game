@@ -14,7 +14,7 @@ public class WaveDisplayer extends Waves
      */
     static int currentWave;
     int magnitude;
-    static int einer;
+    static int einer ;
     static int zehner;
     int counterStelle;
     public WaveDisplayer(int stelle){

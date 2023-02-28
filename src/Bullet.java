@@ -12,17 +12,19 @@ public class Bullet extends SmoothMover
     public int speed;
     public int counter = 0;
     public int damage;
+    int bulletImg;
     public void act()
     {
         bulletMove();
         removeBullet();
+        setBulletImg();
     }
-    public Bullet(int rot,int spd,int dmg)
+    public Bullet(int rot,int spd,int dmg,int turretType)
     {
         setRotation(rot);  
-        speed=spd;
-        damage=dmg;
-        
+        speed = spd;
+        damage = dmg;
+        bulletImg = turretType;
     }
     public void bulletMove()
     {
@@ -31,8 +33,11 @@ public class Bullet extends SmoothMover
     }
     public void removeBullet()
     {
-        if(isAtEdge()||counter>20){
+        if(isAtEdge()||counter>35){
             this.getWorld().removeObject(this);
         }       
+    }
+    public void setBulletImg(){
+        this.setImage("Bullet"+bulletImg+".png");
     }
 }

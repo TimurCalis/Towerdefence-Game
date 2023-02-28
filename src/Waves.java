@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; 
 
 /**
  * Write a description of class delayer here.
@@ -19,17 +19,22 @@ public class Waves extends UI
     {
         abc();   
         wavesVariables();
-        // wavesDisplayInt();
     }
     public int wavesArray[][]= { //{delayTime, callsMax,planeHealthE}
-        {200,5,6},
-        {50,5,4},
-        {1,40,2},
-        {1,40,4},
-        {1,100,6},
-        {90,4,30},
-        {80,4,40},
-        {70,4,60},
+        {100,5,6},  //0
+        {50,5,4},   //2
+        {2,6,2},    //3
+        {4,6,4},    //4
+        {20,8,16},  //5 
+        {90,4,30},  //6
+        {20,10,8},  //7
+        {80,4,40},  //8
+        {70,4,60},  //9
+        {60,5,70},  //10
+        {1,1,200},  //11
+        {20,12,20}, //12
+        {50,6,100}, //13
+        {40,7,150}, //14
         };
     public void wavesVariables() {
         delayTime    = this.wavesArray[wavesCounter][0];
@@ -41,8 +46,8 @@ public class Waves extends UI
         wavesVariables();
         if(this.isSpawning==true){
             if(this.delayCounter%delayTime==0){
-                MyWorld myWorld=((MyWorld)getWorld());
-                myWorld.spawnPlane(planeHealthE);   //spawn a plane with the amount of health given
+                MainWorld mainWorld=((MainWorld)getWorld());
+                mainWorld.spawnPlane(planeHealthE);   //spawn a plane with the amount of health given
                 callsCounter ++;
                 
             }
@@ -51,9 +56,10 @@ public class Waves extends UI
                 this.isSpawning = false;
                 delayCounter = 0;
                 callsCounter = 0;
-                if(wavesCounter+1<wavesArray.length)//limits waves to length of Arr
-                this.wavesCounter ++;
-                wavesDisplayInt();
+                if(wavesCounter+1<wavesArray.length){//limits waves to length of Arr
+                    this.wavesCounter ++;
+                    wavesDisplayInt();
+                }
             }
         }
     }

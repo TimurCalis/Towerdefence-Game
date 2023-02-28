@@ -1,29 +1,16 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
-/**
- * Write a description of class Ground here.
- * 
- * @author (titi) 
- * @version (a version number or a date)
+/** Ground for enemys to move on
+ *  Type is given by MainWorld.pathArray[i][j]
  */
 public class Ground extends Actor
 {
     public int type;
-    
-    
     //constructor für path
-    //consturctor ist neue methode
     public Ground(int type){
         this.type=type;
     }
     public int getType(){
         return this.type;
     }
-    
-    public void act()
-    {
-        
-    }
-    
-    
 }

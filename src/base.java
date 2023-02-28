@@ -21,9 +21,9 @@ public class Base extends Tower
     public void placeWeapon(){//place a weapon Hilfe von Valentin
         if(Greenfoot.mouseClicked(this) && this.getWorld().getObjects(WeaponBuyButton.class).size()!=0 ){
             WeaponBuyButton wpn = (WeaponBuyButton)this.getWorld().getObjects(WeaponBuyButton.class).get(0);
-            if(wpn.weaponPlaceable == 1 && used != true){
+            if(wpn.weaponPlaceable == true && used != true){
                 System.out.println(wpn.weaponPlaceableID);
-                wpn.weaponPlaceable = 0;
+                wpn.weaponPlaceable = false;
                 this.getWorld().addObject(new Turret(wpn.weaponPlaceableID),this.getX(),this.getY());
             }            
         }
