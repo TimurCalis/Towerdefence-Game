@@ -77,7 +77,7 @@ public class MainWorld extends World
         ShopButton shopButton = new ShopButton();
         addObject(shopButton,27,22);
         Money.money = 150;
-        LivesCounter.lives = 2;
+        LivesCounter.lives = 10;
         Waves.wavesCounter = 0;
         WaveDisplayer.currentWave = 1;
     }
