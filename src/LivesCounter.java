@@ -32,7 +32,9 @@ public class LivesCounter extends UI
     public void checkGameend()
     {
         if(lives<=0){
+            getWorld().removeObjects(getWorld().getObjects(SmoothMover.class));
             getWorld().addObject(new LivesCounter(true),15,12);
+            
             if(Greenfoot.mouseClicked(this)){
                 MainWorld mainWorld=((MainWorld)getWorld());
                 mainWorld.prepare(); //load prepare(), all static values will get reset, all actors removed. Game restarts.

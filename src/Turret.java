@@ -15,7 +15,7 @@ public class Turret extends Tower
     int turretLevel;
     int turretType;
     public int ReloadArray[][]= {{25,17,10},{10,5,2},{40,30,17},}; //reload speed for every Level and ever Turret {Cannon}{MashineGun}{RocketLauncher}
-    public int BulletDmgArray[][]={{4,5,8},{2,3,5},{10,16,30},};                          //{4,2,10}; //damage of bullets being shot
+    public int BulletDmgArray[][]={{4,5,8},{2,3,5},{20,30,45},};                          //{4,2,10}; //damage of bullets being shot
     public int TurretRangeArray[][]={{8,12,18},{5,7,10},{20,25,35},}; //Range  
     public Turret(int type){
         turretType = type;
