@@ -3,6 +3,4 @@ comment0.target=Ground
 comment0.text=\ Ground\ for\ enemys\ to\ move\ on\r\n\ \ Type\ is\ given\ by\ MainWorld.pathArray[i][j]\r\n
 comment1.params=type
 comment1.target=Ground(int)
-comment2.params=
-comment2.target=int\ getType()
-numComments=3
+numComments=2

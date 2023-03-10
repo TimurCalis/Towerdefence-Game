@@ -24,7 +24,7 @@ public class Enemy extends SmoothMover
            this.getWorld().removeObject(bullet);
         }
     }
-    public void removeEnemy(){
+    public void removeEnemy(){//if enemy killed add money
         if(enemyHealth<=0){
            Money money = new Money();
            Money.money += 25;

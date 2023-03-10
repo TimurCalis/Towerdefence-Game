@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
+import greenfoot.*;  //Smooth mover class by @authors 
 
 /**
  * A variation of an actor that maintains a precise location (using doubles for the co-ordinates

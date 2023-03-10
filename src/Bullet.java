@@ -1,11 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class Bullet here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Bullet extends SmoothMover
 {
     public int rot;
@@ -37,7 +31,7 @@ public class Bullet extends SmoothMover
             this.getWorld().removeObject(this);
         }       
     }
-    public void setBulletImg(){
+    public void setBulletImg(){ //sets bullet img according to turret
         this.setImage("Bullet"+bulletImg+".png");
     }
 }

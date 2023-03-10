@@ -1,24 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; 
 
 /**
- * Write a description of class base here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Base to place turret on
  */
 public class Base extends Tower
 {
-    /**
-     * Act - do whatever the base wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     boolean used;
     public void act()
     {
         placeWeapon();
         checkUsed();
     }
-    public void placeWeapon(){//place a weapon Hilfe von Valentin
+    public void placeWeapon(){//place a turret on base if bought [Hilfe von Valentin]
         if(Greenfoot.mouseClicked(this) && this.getWorld().getObjects(WeaponBuyButton.class).size()!=0 ){
             WeaponBuyButton wpn = (WeaponBuyButton)this.getWorld().getObjects(WeaponBuyButton.class).get(0);
             if(wpn.weaponPlaceable == true && used != true){

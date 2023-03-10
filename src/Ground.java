@@ -6,11 +6,7 @@ import greenfoot.*;
 public class Ground extends Actor
 {
     public int type;
-    //constructor für path
     public Ground(int type){
         this.type=type;
-    }
-    public int getType(){
-        return this.type;
     }
 }

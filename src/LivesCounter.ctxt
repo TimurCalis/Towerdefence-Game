@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=LivesCounter
-comment0.text=\ Regular\ lives\ Display\ +\ Gameover\ screen\ in\ one\ class\ for\ efficeny\ (no\ new\ world\ is\ required)\r\n\ \ LivesCounter(false)\ \=\ LivesCounter\ \r\n\ \ LivesCounter(true)\ \=\ created\ after\ all\ lives\ are\ lost,\ clickable\ for\ restart\r\n
+comment0.text=\ Regular\ lives\ Display\ +\ Gameover\ screen\ in\ one\ class\ for\ efficeny\ (no\ new\ world\ is\ required)\ +\ win\ screen\r\n\ \ LivesCounter(0)\ \=\ LivesCounter\ \r\n\ \ LivesCounter(1)\ \=\ created\ after\ all\ lives\ are\ lost,\ clickable\ for\ restart\r\n\ \ LivesCounter(2)\ \=\ created\ after\ all\ waves\ have\ been\ played,\ clickable\ for\ restart\r\n
 comment1.params=gameOverLogo
-comment1.target=LivesCounter(boolean)
+comment1.target=LivesCounter(int)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=livesLost

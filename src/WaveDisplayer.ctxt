@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=WaveDisplayer
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ WaveCounter\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=stelle
+comment0.text=\r\n\ displays\ the\ current\ wave\ as\ a*10^0\ and\ b*10^1\r\n
+comment1.params=decimalPoint
 comment1.target=WaveDisplayer(int)
 comment2.params=
 comment2.target=void\ act()

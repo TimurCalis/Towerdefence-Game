@@ -9,19 +9,19 @@ import greenfoot.*;
 public class Waves extends UI
 {
     boolean isSpawning = false;
-    int delayCounter = 0;   //delay between each spawned enemy
-    int delayTime;
+    int delayCounter = 0;   
+    int delayTime;          //time between next enemy
     int callsCounter = 0;
     int callsMax;           //amount of enemys spawned
     static int wavesCounter = 0;
-    int planeHealthE;  //different waves with increasing difficulty
+    int planeHealthE;  //health of enemys
     public void act()
     {
         abc();   
         wavesVariables();
     }
     public int wavesArray[][]= { //{delayTime, callsMax,planeHealthE}
-        {100,5,6},  //0
+        {100,5,6},  //0(1)
         {50,5,4},   //2
         {2,6,2},    //3
         {4,6,4},    //4

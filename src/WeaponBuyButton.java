@@ -33,5 +33,4 @@ public class WeaponBuyButton extends ShopElements
             }
         }
     }
-    
 }

@@ -1,19 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class MainWorld extends World
 {
-    //i y-Achse
-    //j x-Achse
     static boolean gameOver;
     static int textID;
-    private boolean textKeyDown1;
-    private boolean textKeyDown2;
+    private boolean textKeyDown1;//true when help key("1")is pressed outside of the shop
+    private boolean textKeyDown2;//true when help key("1")is pressed inside of the shop
+    //i y-Achse
+    //j x-Achse
     public int pathArray[][]= {
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 4,0,0, 0,0,0, 0,0,0, 0,0},
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 1,0,0, 0,0,0, 0,0,0, 0,0},
@@ -46,19 +39,14 @@ public class MainWorld extends World
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0},
             {0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0}, 
-        }; 
-
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
+        }; //array of the level, tells enemys how to move through th level
     public MainWorld()
     {    
         super(31, 24, 21); 
         prepare();
     }
     public void act(){
-        if(textKeyDown1 != Greenfoot.isKeyDown("1") && (textKeyDown1 = !textKeyDown1) && ShopButton.shopOpen == false){
+        if(textKeyDown1 != Greenfoot.isKeyDown("1") && (textKeyDown1 = !textKeyDown1) && ShopButton.shopOpen == false){//displays the help message
             removeObjects(getObjects(Text.class));
             addObject(new Text(textID),Text.textCord[textID][0],Text.textCord[textID][1]);
             textID ++;
@@ -70,7 +58,6 @@ public class MainWorld extends World
             if(textID >= 8){
                 textID = 0;
             }
-            System.out.println(textID);
             removeObjects(getObjects(Text.class));
             addObject(new Text(textID+6),Text.textCord[textID+6][0],Text.textCord[textID+6][1]);
             textID ++;
@@ -79,7 +66,7 @@ public class MainWorld extends World
         }
     public void prepare(){
         removeObjects(getObjects(Actor.class));
-        for (int i=0;i<this.pathArray.length;i++)
+        for (int i=0;i<this.pathArray.length;i++)//iterate over the array, place paths according to the array in world
         {    
             for (int j=0;j<this.pathArray[i].length;j++)
             {
@@ -91,9 +78,9 @@ public class MainWorld extends World
                 }
             }
         }
-        addObject(new LivesCounter(false),10,1);
+        addObject(new LivesCounter(0),10,1);
         addObject(new Money(),19,1);
-        LivesCounter livesCounter = new LivesCounter(false);
+        LivesCounter livesCounter = new LivesCounter(0);
         livesCounter.lives=5;
         WaveStartButton button = new WaveStartButton();
         addObject(button,29,22);
@@ -104,12 +91,10 @@ public class MainWorld extends World
         LivesCounter.lives = 10;
         Waves.wavesCounter = 0;
         WaveDisplayer.currentWave = 1;
+        //resets to default values
     }
-    public void spawnPlane(int planeHealth){ 
+    public void spawnPlane(int planeHealth){ //spawn enemies
         addObject(new Enemy(planeHealth),0,16);
-    }
-    public void gameEnd(){
-        //this.setImage("GameOver.png");
     }
     }
 

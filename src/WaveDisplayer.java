@@ -1,24 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WaveCounter here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * displays the current wave as a*10^0 and b*10^1
  */
 public class WaveDisplayer extends Waves
 {
-    /**
-     * Act - do whatever the WaveCounter wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     static int currentWave;
     int magnitude;
-    static int einer ;
-    static int zehner;
-    int counterStelle;
-    public WaveDisplayer(int stelle){
-        counterStelle = stelle;
+    static int a ;
+    static int b;
+    int counterDecimalPoint;
+    public WaveDisplayer(int decimalPoint){
+        counterDecimalPoint = decimalPoint;
     }
     public void act()
     {
@@ -26,7 +19,7 @@ public class WaveDisplayer extends Waves
         size();
         zerlegung();
     }
-    public void size(){
+    public void size(){ 
         if(currentWave < 10){
             magnitude = 0;
         }
@@ -39,23 +32,22 @@ public class WaveDisplayer extends Waves
     }
     public void zerlegung(){
         if(magnitude == 0){
-            einer = currentWave;
+            a = currentWave;
         }
         if(magnitude == 1){
-            einer = currentWave - 10;
+            a = currentWave - 10;
         }
         if(magnitude == 2){
-            einer = currentWave - 20;
+            a = currentWave - 20;
         }
-        zehner = currentWave - einer;
-        System.out.println(zehner);
+        b = currentWave - a;
     }
     public void wavesImg(){
-        if(counterStelle == 0){
-            setImage("int" + einer + ".png");//print the current _Wave from the Wave.class
+        if(counterDecimalPoint == 0){
+            setImage("int" + a + ".png");//print the current _Wave from the Wave.class
         }
-        if(counterStelle == 1){
-            setImage("int" + zehner/10 + ".png");
+        if(counterDecimalPoint == 1){
+            setImage("int" + b/10 + ".png");
         }
     }
 }
